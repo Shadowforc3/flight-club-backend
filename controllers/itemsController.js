@@ -1,10 +1,5 @@
-import Item from "../models/Item.js";
+import items from "../data/items.json" assert { type: "json" };
 
-export async function getItems(req, res) {
-  try {
-    const items = await Item.find({});
-    res.json({ success: true, items });
-  } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
-  }
-}
+export const getItems = (req, res) => {
+  res.json(items);
+};
